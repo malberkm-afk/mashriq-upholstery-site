@@ -1,0 +1,480 @@
+<!-- 
+    تعليمات النشر:
+    هذا الملف (index.html) جاهز بالكامل للنشر. 
+    لجعل موقعك متاحًا للعامة، اتبع الخطوات التالية:
+
+    1. اختر خدمة استضافة ويب مجانية أو مدفوعة (مثل: GitHub Pages, Netlify, Hostinger).
+    2. ارفع هذا الملف الواحد فقط (index.html) إلى المجلد الرئيسي (الجذر) في خدمة الاستضافة.
+    3. تأكد من استبدال جميع روابط الصور المؤقتة (https://placehold.co/...) بروابط الصور المباشرة (URLs) التي قمت بتحميلها مسبقاً، وذلك في قسم المعرض.
+    
+    الموقع سيعمل مباشرة بمجرد اكتمال الرفع.
+-->
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشرق للتنجيد والستائر</title>
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* تخصيص الخط ليتناسب مع اللغة العربية بشكل أفضل */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;700&display=swap');
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f8f8f8;
+            color: #1a202c;
+        }
+        .photo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 4, 8, 0.05);
+        }
+        .loader {
+            border-top-color: #3498db;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- شريط التنقل (Header) -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-indigo-600">المشرق للتنجيد والستائر</h1>
+            <nav class="hidden md:block">
+                <a href="#inspiration" class="text-gray-600 hover:text-indigo-600 px-3 transition duration-150">إلهام ✨</a>
+                <a href="#gallery" class="text-gray-600 hover:text-indigo-600 px-3 transition duration-150">المعرض</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 transition duration-150">من نحن</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 transition duration-150">تواصل</a>
+            </nav>
+            <button class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- قائمة الهامبرغر المتنقلة (Mobile Menu) -->
+    <div id="mobile-menu" class="hidden bg-white shadow-lg p-4 md:hidden">
+        <a href="#inspiration" class="block py-2 text-gray-700 hover:bg-indigo-100 rounded-lg transition duration-150">إلهام التصميم ✨</a>
+        <a href="#gallery" class="block py-2 text-gray-700 hover:bg-indigo-100 rounded-lg transition duration-150">المعرض</a>
+        <a href="#about" class="block py-2 text-gray-700 hover:bg-indigo-100 rounded-lg transition duration-150">من نحن</a>
+        <a href="#contact" class="block py-2 text-gray-700 hover:bg-indigo-100 rounded-lg transition duration-150">تواصل</a>
+    </div>
+
+    <!-- قسم الأبطال (Hero Section) -->
+    <section class="py-16 md:py-24 bg-indigo-50">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-4 text-indigo-800">مجموعة من اعمالنا المميزة</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">مكان واحد يضم أجمل أعمال التنجيد والستائر. تصفح المعرض واستلهم تصميمك القادم.</p>
+            <a href="#inspiration" class="bg-pink-600 text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-pink-700 transition duration-300 shadow-lg hover:shadow-xl">احصل على إلهام تصميمي ✨</a>
+        </div>
+    </section>
+    
+    <!-- قسم إلهام التصميم (Gemini Feature 1: Design Inspiration) -->
+    <section id="inspiration" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700 flex items-center justify-center">
+                <span class="ml-2">احصل على إلهام تصميمي فوري</span>
+                <span class="text-pink-500">✨</span>
+            </h2>
+            <p class="text-center text-lg text-gray-600 mb-8">أدخل اسم الغرفة أو النمط الذي تفضله (مثل "غرفة معيشة بوهيمي" أو "مكتب عصري") وسيقدم لك Gemini اقتراحًا باستخدام أحدث معلومات التصميم.</p>
+            
+            <div class="bg-gray-100 p-6 rounded-xl shadow-lg">
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse mb-6">
+                    <input type="text" id="design-prompt" class="w-full sm:w-3/4 p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-right" placeholder="مثال: غرفة طعام كلاسيكية فاخرة">
+                    <button id="generate-inspiration-btn" class="w-full sm:w-1/4 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-md flex items-center justify-center">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v14m-7 0h14c1.105 0 2 .895 2 2v2c0 1.105-.895 2-2 2H5c-1.105 0-2-.895-2-2v-2c0-1.105.895-2 2-2z"></path></svg>
+                        توليد الإلهام
+                    </button>
+                </div>
+                
+                <div id="inspiration-loading" class="hidden text-center py-4">
+                    <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-8 w-8 mx-auto mb-2"></div>
+                    <p class="text-gray-500">جارٍ البحث عن أحدث الاتجاهات...</p>
+                </div>
+
+                <div id="inspiration-output" class="p-4 bg-white rounded-lg shadow-inner text-gray-700 min-h-[100px]">
+                    <!-- سيتم عرض نتائج Gemini هنا -->
+                    <p class="text-gray-400">ستظهر هنا اقتراحات Gemini للتصميم الداخلي والأقمشة.</p>
+                </div>
+
+                <div id="inspiration-sources" class="mt-4 p-2 border-t border-gray-200 hidden">
+                    <!-- سيتم عرض المصادر هنا -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المعرض (Gallery) -->
+    <section id="gallery" class="py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">من اعمال المشرق للتنجيد والستائر</h2>
+            
+            <!-- Gemini Feature 2: Upholstery Helper -->
+            <div class="bg-yellow-50 p-6 rounded-xl shadow-inner mb-12">
+                <h3 class="text-2xl font-bold text-center mb-4 text-yellow-800 flex items-center justify-center">
+                    <span class="ml-2">✨ مساعد التنجيد الذكي</span>
+                </h3>
+                <p class="text-center text-lg text-gray-700 mb-6">صف قطعة الأثاث التي تريد إعادة تنجيدها (مثل: "كنبة ثلاثية مودرن") أو استلهم من صورة في المعرض، وسيقدم لك Gemini اقتراحات للأقمشة والألوان المناسبة لميزانيتك.</p>
+                
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 sm:space-x-reverse mb-4">
+                    <input type="text" id="upholstery-prompt" class="w-full sm:w-3/4 p-3 border border-yellow-300 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 text-right" placeholder="مثال: كرسي طعام كلاسيكي يحتاج إلى قماش مخمل مقاوم للبقع">
+                    <button id="generate-upholstery-btn" class="w-full sm:w-1/4 bg-yellow-600 text-white py-3 rounded-lg font-semibold hover:bg-yellow-700 transition duration-300 shadow-md flex items-center justify-center">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 3-3M6 6h12a2 2 0 012 2v10a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2z"></path></svg>
+                        اقتراح تنجيد
+                    </button>
+                </div>
+
+                <div id="upholstery-loading" class="hidden text-center py-4">
+                    <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-8 w-8 mx-auto mb-2 border-t-yellow-600"></div>
+                    <p class="text-gray-500">جاري تحليل الطلب...</p>
+                </div>
+
+                <div id="upholstery-output" class="p-4 bg-white rounded-lg shadow-md text-gray-700 min-h-[50px]">
+                     <p class="text-gray-400">ستظهر هنا اقتراحات Gemini الخاصة بالتنجيد.</p>
+                </div>
+            </div>
+            <!-- نهاية مساعد التنجيد -->
+
+            <!-- شبكة الصور المتجاوبة (Responsive Grid) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- بطاقة صورة 1: خلفيات سرير - (صورة مستخدم حقيقية) -->
+                <div class="photo-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <!-- الرجاء استبدال الرابط المؤقت التالي برابط الصورة المباشر لخلفيات السرير -->
+                    <img src=https://i.postimg.cc/qq2PDKGG/Whats-App-Image-2025-11-25-at-8-05-55-PM.jpg
+                         alt="صورة لكنب فاخر بتنجيد عصري" 
+                         class="w-full h-48 object-cover"> 
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">خلفيات سراير</h3>
+                        <p class="text-sm text-gray-500">ارقى الديزاينات من اعمالنا</p>
+                    </div>
+                </div>
+
+                <!-- بطاقة صورة 2: الستائر - (الرجاء استبدال الرابط المؤقت التالي برابط الصورة المباشر للستائر) -->
+                <div class="photo-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src=https://i.postimg.cc/bYn2gv1k/Whats-App-Image-2025-11-24-at-3-04-13-PM.jpg
+                         alt="صورة ستائر شفافة وعصرية" 
+                         class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">الستائر الحديثة</h3>
+                        <p class="text-sm text-gray-500">تصاميم تناسب كل غرفة</p>
+                    </div>
+                </div>
+
+                <!-- تم إزالة بطاقات الصور الأخرى بناءً على طلب المستخدم. -->
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-gray-200 text-gray-700 py-3 px-6 rounded-full font-semibold hover:bg-gray-300 transition duration-300">
+                    عرض المزيد من الصور
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم عني (About): تم التعديل ليناسب نشاط التنجيد -->
+    <section id="about" class="py-12 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-bold text-center mb-8 text-indigo-700">من نحن في المشرق</h2>
+            <div class="text-lg text-gray-600 leading-relaxed space-y-4">
+                <p>مرحباً بكم! المشرق للتنجيد والستائر هو اسم يترادف مع الجودة والحرفية في عالم الديكور. نحن متخصصون في تقديم حلول متكاملة لتنجيد الأثاث وتصميم وتركيب الستائر الفاخرة، لتحويل مساحاتكم إلى أماكن أنيقة ومريحة.</p>
+                <p>نعمل بشغف لضمان أن كل قطعة أثاث وكل تصميم ستارة يعكس ذوقكم الرفيع ويلبي أعلى معايير المتانة والجمال. تصفحوا معرض أعمالنا لتروا كيف يمكننا إضفاء لمسة من الفخامة على منزلكم أو مكتبكم.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل (Contact) -->
+    <section id="contact" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-lg">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">تواصل معنا</h2>
+            <form class="bg-gray-100 p-8 rounded-xl shadow-2xl space-y-6" onsubmit="event.preventDefault()">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1"> الاسم</label>
+                    <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="أدخل اسمك">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">البريد الالكتروني</label>
+                    <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="name@example.com">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">رسالتك (نوع القماش، القياسات، الخ)</label>
+                    <textarea id="message" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="اكتب تفاصيل طلبك هنا..."></textarea>
+                </div>
+
+                <!-- Gemini Feature 3: Professional Message Composer -->
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 sm:space-x-reverse">
+                    <button id="compose-message-btn" type="button" class="w-full sm:w-1/2 bg-pink-600 text-white py-3 rounded-lg font-semibold hover:bg-pink-700 transition duration-300 flex items-center justify-center">
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        صياغة رسالة احترافية ✨
+                    </button>
+                    <button type="submit" class="w-full sm:w-1/2 bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">
+                        إرسال الرسالة
+                    </button>
+                </div>
+                
+                <div id="compose-loading" class="hidden text-center py-2">
+                    <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-6 w-6 mx-auto mb-1 border-t-pink-600"></div>
+                    <p class="text-gray-500 text-sm">جارٍ تحسين الصياغة...</p>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-sm">&copy; 2025 المشرق للتنجيد والستائر. جميع الحقوق محفوظة.</p>
+            <div class="flex justify-center space-x-4 space-x-reverse mt-2">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-150">انستجرام</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-150">تويتر</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        // استيراد مكتبات Firebase (مطلوبة لتشغيل البيئة)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // إعدادات Gemini API
+        const apiKey = ""; // المفتاح يتم توفيره من قبل البيئة
+        const LLM_MODEL = "gemini-2.5-flash-preview-09-2025";
+        const MAX_RETRIES = 5;
+
+        // متغيرات Firebase العامة
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+
+        let app, auth, db, userId;
+
+        // دالة تهيئة Firebase والمصادقة
+        async function initFirebase() {
+            try {
+                setLogLevel('Debug');
+                if (Object.keys(firebaseConfig).length) {
+                    app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    userId = auth.currentUser?.uid || crypto.randomUUID();
+                } else {
+                    console.warn("Firebase configuration missing. Running in basic mode.");
+                    userId = crypto.randomUUID();
+                }
+            } catch (error) {
+                console.error("Firebase Initialization or Auth Error:", error);
+            }
+        }
+
+        // دالة التعامل مع استدعاء Gemini API مع محاولات متزايدة
+        async function fetchLLMResponse(userQuery, systemPrompt, useGrounding = false) {
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${LLM_MODEL}:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            if (useGrounding) {
+                // تفعيل البحث المُعزَّز من Google
+                payload.tools = [{ "google_search": {} }];
+            }
+
+            const headers = { 'Content-Type': 'application/json' };
+
+            for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: headers,
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        if (response.status === 429 && attempt < MAX_RETRIES - 1) {
+                            const delay = Math.pow(2, attempt) * 1000;
+                            await new Promise(resolve => setTimeout(resolve, delay));
+                            continue; // إعادة المحاولة
+                        }
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        let sources = [];
+                        const groundingMetadata = candidate.groundingMetadata;
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+                        return { text, sources };
+                    } else {
+                        return { text: "تعذر الحصول على استجابة.", sources: [] };
+                    }
+
+                } catch (error) {
+                    console.error("Gemini API call failed:", error);
+                    if (attempt === MAX_RETRIES - 1) {
+                        return { text: "حدث خطأ أثناء الاتصال بالخدمة. يرجى المحاولة لاحقاً.", sources: [] };
+                    }
+                }
+            }
+        }
+
+        // دالة توليد إلهام التصميم (الميزة 1: قسم الإلهام)
+        async function generateInspiration() {
+            const inputElement = document.getElementById('design-prompt');
+            const outputElement = document.getElementById('inspiration-output');
+            const loadingElement = document.getElementById('inspiration-loading');
+            const sourcesElement = document.getElementById('inspiration-sources');
+            
+            const prompt = inputElement.value.trim();
+            if (!prompt) {
+                outputElement.innerHTML = `<p class="text-red-500">الرجاء إدخال اسم الغرفة أو النمط المطلوب.</p>`;
+                sourcesElement.classList.add('hidden');
+                return;
+            }
+
+            loadingElement.classList.remove('hidden');
+            outputElement.innerHTML = '';
+            sourcesElement.innerHTML = '';
+            sourcesElement.classList.add('hidden');
+
+            const systemPrompt = "أنت خبير في التصميم الداخلي والتنجيد والستائر. قدم اقتراحًا موجزًا ومبتكرًا (في حدود 100 كلمة) لغرفة أو نمط معين، مع التركيز على الأقمشة والألوان الرائجة. يجب أن تكون الإجابة باللغة العربية.";
+            const userQuery = `اقتراح تصميم لـ: ${prompt}.`;
+
+            const result = await fetchLLMResponse(userQuery, systemPrompt, true);
+
+            loadingElement.classList.add('hidden');
+            outputElement.innerHTML = `<p class="whitespace-pre-wrap">${result.text}</p>`;
+
+            if (result.sources && result.sources.length > 0) {
+                sourcesElement.innerHTML = `
+                    <h4 class="text-sm font-semibold mt-4 mb-2 text-gray-700 border-t pt-2">المصادر المرجعية (Google Search):</h4>
+                    <ul class="list-disc list-inside text-xs text-gray-500 space-y-1">
+                        ${result.sources.map(source => 
+                            `<li><a href="${source.uri}" target="_blank" class="text-indigo-500 hover:text-indigo-700">${source.title}</a></li>`
+                        ).join('')}
+                    </ul>
+                `;
+                sourcesElement.classList.remove('hidden');
+            }
+        }
+        
+        // دالة توليد اقتراحات التنجيد (الميزة 2: قسم المعرض)
+        async function generateUpholsterySuggestion() {
+            const inputElement = document.getElementById('upholstery-prompt');
+            const outputElement = document.getElementById('upholstery-output');
+            const loadingElement = document.getElementById('upholstery-loading');
+            
+            const prompt = inputElement.value.trim();
+            if (!prompt) {
+                outputElement.innerHTML = `<p class="text-red-500">الرجاء وصف قطعة الأثاث التي تحتاج تنجيد.</p>`;
+                return;
+            }
+
+            loadingElement.classList.remove('hidden');
+            outputElement.innerHTML = '';
+
+            const systemPrompt = "أنت خبير في خامات التنجيد والألوان. بناءً على وصف المستخدم لقطعة الأثاث، قدم 3 اقتراحات محددة وموجزة (نوع القماش، اللون، ومستوى الميزانية - اقتصادي/متوسط/فاخر) باللغة العربية. يجب أن تكون الإجابة على شكل قائمة نقطية.";
+            const userQuery = `أريد اقتراحات تنجيد لـ: ${prompt}`;
+
+            const result = await fetchLLMResponse(userQuery, systemPrompt, false);
+
+            loadingElement.classList.add('hidden');
+            // استبدال علامات النجمة التي قد يستخدمها النموذج بعلامات قائمة HTML
+            const formattedText = result.text.replace(/^-/gm, '<li class="mb-1 flex items-start"><svg class="w-4 h-4 mt-1 ml-1 text-yellow-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/></svg>').replace(/\*\s*/g, '</li>');
+            
+            outputElement.innerHTML = `<ul class="list-none space-y-2 pr-0">${formattedText}</ul>`;
+        }
+        
+        // دالة صياغة الرسالة الاحترافية (الميزة 3: قسم التواصل)
+        async function composeProfessionalMessage() {
+            const messageElement = document.getElementById('message');
+            const loadingElement = document.getElementById('compose-loading');
+            
+            const originalMessage = messageElement.value.trim();
+            if (!originalMessage) {
+                // استخدام مربع رسالة مخصص بدلاً من alert
+                messageElement.placeholder = "الرجاء كتابة رسالتك أولاً ليتم صياغتها.";
+                messageElement.focus();
+                return;
+            }
+
+            loadingElement.classList.remove('hidden');
+
+            const systemPrompt = "أنت مساعد صياغة الرسائل. مهمتك هي أخذ رسالة غير رسمية أو سريعة وتحويلها إلى رسالة طلب عرض سعر أو استفسار احترافية وواضحة وموجزة وموجهة لورشة عمل. يجب أن تتضمن الرسالة المحسنة تحية وشكراً وتفاصيل الطلب. أعد كتابة الرسالة باللغة العربية الفصحى فقط.";
+            const userQuery = `صغ هذه الرسالة باحترافية لطلب خدمة تنجيد أو ستائر: ${originalMessage}`;
+
+            const result = await fetchLLMResponse(userQuery, systemPrompt, false);
+
+            loadingElement.classList.add('hidden');
+            
+            // تحديث محتوى مربع النص بالرسالة المصاغة
+            messageElement.value = result.text.trim();
+        }
+
+
+        // دالة تبديل قائمة الهامبرغر في وضع الهاتف المحمول
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // عند تحميل النافذة، قم بتهيئة Firebase وإضافة المستمعات
+        window.onload = function() {
+            initFirebase();
+            
+            // تحريك سلس عند النقر على روابط التنقل
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // ربط زر توليد الإلهام (الميزة 1)
+            document.getElementById('generate-inspiration-btn').addEventListener('click', generateInspiration);
+
+            // ربط زر اقتراح التنجيد (الميزة 2)
+            document.getElementById('generate-upholstery-btn').addEventListener('click', generateUpholsterySuggestion);
+
+            // ربط زر صياغة الرسالة (الميزة 3)
+            document.getElementById('compose-message-btn').addEventListener('click', composeProfessionalMessage);
+            
+            // جعل دالة toggleMenu متاحة بشكل عام للمكونات الأخرى
+            window.toggleMenu = toggleMenu;
+        };
+
+    </script>
+</body>
+</html>
